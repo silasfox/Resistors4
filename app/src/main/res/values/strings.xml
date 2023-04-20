@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Resistors4</string>
+    <string name="btnName">Calculate</string>
+    <string name="resultLabel">Result:</string>
+    <string name="result"></string>
+    <string name="silber">Silber</string>
+    <string name="gold">Gold</string>
+    <string name="schwarz">Schwarz</string>
+    <string name="braun">Braun</string>
+    <string name="rot">Rot</string>
+    <string name="orange">Orange</string>
+    <string name="gelb">Gelb</string>
+    <string name="grün">Grün</string>
+    <string name="blau">Blau</string>
+    <string name="violett">Violett</string>
+    <string name="grau">Grau</string>
+    <string name="weiß">Weiß</string>
+</resources>

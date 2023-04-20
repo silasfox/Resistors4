@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="firstColor">
+        <item>@string/braun</item>
+        <item>@string/rot</item>
+        <item>@string/orange</item>
+        <item>@string/gelb</item>
+        <item>@string/grün</item>
+        <item>@string/blau</item>
+        <item>@string/violett</item>
+        <item>@string/grau</item>
+        <item>@string/weiß</item>
+    </string-array>
+    <string-array name="secondColor">
+        <item>@string/schwarz</item>
+        <item>@string/braun</item>
+        <item>@string/rot</item>
+        <item>@string/orange</item>
+        <item>@string/gelb</item>
+        <item>@string/grün</item>
+        <item>@string/blau</item>
+        <item>@string/violett</item>
+        <item>@string/grau</item>
+        <item>@string/weiß</item>
+    </string-array>
+    <string-array name="multiplicatorColors">
+        <item>@string/silber</item>
+        <item>@string/gold</item>
+        <item>@string/schwarz</item>
+        <item>@string/braun</item>
+        <item>@string/rot</item>
+        <item>@string/orange</item>
+        <item>@string/gelb</item>
+        <item>@string/grün</item>
+        <item>@string/blau</item>
+        <item>@string/violett</item>
+        <item>@string/grau</item>
+        <item>@string/weiß</item>
+    </string-array>
+    <string-array name="toleranceColors">
+        <item>@string/silber</item>
+        <item>@string/gold</item>
+        <item>@string/braun</item>
+        <item>@string/rot</item>
+        <item>@string/grün</item>
+        <item>@string/blau</item>
+        <item>@string/violett</item>
+        <item>@string/grau</item>
+    </string-array>
+    <string-array name="temperatureColors">
+        <item>@string/braun</item>
+        <item>@string/rot</item>
+        <item>@string/orange</item>
+        <item>@string/gelb</item>
+        <item>@string/blau</item>
+        <item>@string/violett</item>
+        <item>@string/weiß</item>
+    </string-array>
+</resources>
