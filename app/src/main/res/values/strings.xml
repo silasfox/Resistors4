@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Resistors4</string>
-    <string name="btnName">Calculate</string>
+    <string name="btnName">Berechne</string>
+    <string name="ringsLabel">Anzahl Ringe:</string>
     <string name="resultLabel">Result:</string>
     <string name="result"></string>
     <string name="silber">Silber</string>

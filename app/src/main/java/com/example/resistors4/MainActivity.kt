@@ -3,13 +3,36 @@ package com.example.resistors4
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val rings = findViewById<Spinner>(R.id.nRings)
+        rings.onItemSelectedListener = this
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+        val selected = parent.getItemAtPosition(pos)
+        val digitColor3 = findViewById<Spinner>(R.id.color3)
+        val tempCoefficient = findViewById<Spinner>(R.id.color6)
+        if (selected.toString().toInt() == 4) {
+            digitColor3.visibility = View.GONE
+            tempCoefficient.visibility = View.GONE
+        } else if (selected.toString().toInt() == 5) {
+            digitColor3.visibility = View.VISIBLE
+            tempCoefficient.visibility = View.GONE
+        } else {
+            digitColor3.visibility = View.VISIBLE
+            tempCoefficient.visibility = View.VISIBLE
+        }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        // Do nothing
     }
 
     fun onCalcHandler(view : View?) {
@@ -28,11 +51,20 @@ class MainActivity : AppCompatActivity() {
         val digit3 = colorToDigit(digitColor3)
         val multiplicator = colorToMultiplicator(multiplicatorStr)
 
-        val number = digitsToNumber(digit1, digit2, digit3, multiplicator)
+        val digits = List(3) { i ->
+            when (i) {
+                0 -> digit1
+                1 -> digit2
+                2 -> digit3
+                else -> 0.0
+            }
+        }
+        val number = digitsToNumber(digits) * multiplicator
         val tolerance = strToTolerance(toleranceStr)
         val tempCoefficient = strToTempCoefficient(tempCoefficientStr)
         result.text = numberToOhm(number) + " " + tolerance +
-                "\nTemperaturkoeffizient: " + tempCoefficient
+                if (findViewById<Spinner>(R.id.nRings).selectedItem.toString().toInt() == 6)
+                "\nTemperaturkoeffizient: " + tempCoefficient else ""
     }
 
     private fun numberToOhm(number : Double): String {
@@ -74,8 +106,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun digitsToNumber(digit1: Double, digit2: Double, digit3: Double, multiplicator : Double) : Double {
-        return (digit1 * 100 + digit2 * 10 + digit3) * multiplicator
+    private fun digitsToNumber(d : List<Double>) : Double {
+        var digits = d
+        if (findViewById<Spinner>(R.id.nRings).selectedItem.toString().toInt() == 4) {
+           digits = d.take(2)
+        }
+        return digits.reduce { acc, digit -> acc * 10 + digit }
     }
 
     private fun colorToMultiplicator(multiplicator: String): Double {
