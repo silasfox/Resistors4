@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val tempCoefficient = strToTempCoefficient(tempCoefficientStr)
         result.text = numberToOhm(number) + " " + tolerance +
                 if (findViewById<Spinner>(R.id.nRings).selectedItem.toString().toInt() == 6)
-                "\nTemperaturkoeffizient: " + tempCoefficient else ""
+                "\nTemp. Koeffizient: " + tempCoefficient else ""
     }
 
     private fun numberToOhm(number : Double): String {
